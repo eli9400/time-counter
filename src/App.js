@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import Counter from "./comps/counter";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { mayDate: "2025-04-02" };
+  userInput = React.createRef();
+  changeDate = () => {
+    this.setState({ mayDate: this.userInput.current.value });
+  };
+  render() {
+    return (
+      <div className="App">
+        <Counter appDate={this.state.mayDate} />
+
+        <input ref={this.userInput} type="date" defaultValue="2025-01-01" />
+
+        <button onClick={this.changeDate} className="btn btn-success">
+          change
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
