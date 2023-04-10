@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 class Counter extends Component {
   state = { mayDate: "2025-02-01", days: "999" };
+
   componentDidMount() {
     let daysLeft = this.calcDaysFromDate(this.props.appDate);
     this.setState({ days: daysLeft });
@@ -23,8 +24,8 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <h2>count down to {this.props.appDate}</h2>
-        <h3>Days: {this.state.days}</h3>
+        <h2>החתונה של אריק והדר {/* {this.props.appDate} */}</h2>
+        <h3>בעוד: {this.state.days} ימים</h3>
       </div>
     );
   }
